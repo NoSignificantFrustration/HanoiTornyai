@@ -1,7 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
-	
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="Hanoi.FoablakController">
-	<!-- TODO Add Nodes -->
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="Hanoi.FoablakController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="26.0" layoutY="64.0" text="Játékos neve:" />
+            <TextField fx:id="nevMezo" layoutX="110.0" layoutY="60.0" prefHeight="25.0" prefWidth="231.0" />
+            <Spinner fx:id="kSpinner" layoutX="110.0" layoutY="142.0" prefHeight="25.0" prefWidth="95.0" />
+            <Label layoutX="15.0" layoutY="146.0" text="Korongok száma:" />
+            <Button layoutX="93.0" layoutY="245.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="215.0" style="-fx-background-color: lightblue;" text="Játék indítása">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </center>
 </BorderPane>
