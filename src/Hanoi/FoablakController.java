@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 
 public class FoablakController {
@@ -20,7 +21,7 @@ public class FoablakController {
     private TextField nevMezo;
 
     @FXML
-    private Spinner<?> kSpin;
+    private Spinner<Integer> kSpin;
 
     @FXML
     private Button playGomb;
@@ -36,6 +37,8 @@ public class FoablakController {
         assert kSpin != null : "fx:id=\"kSpin\" was not injected: check your FXML file 'Foablak.fxml'.";
         assert playGomb != null : "fx:id=\"playGomb\" was not injected: check your FXML file 'Foablak.fxml'.";
         nevMezo.setText("Névtelen");
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(4, 10, 6);
+        kSpin.setValueFactory(valueFactory);
 
     }
 }

@@ -39,7 +39,7 @@
          <children>
             <Label layoutX="26.0" layoutY="64.0" text="Játékos neve:" />
             <TextField fx:id="nevMezo" layoutX="110.0" layoutY="60.0" prefHeight="25.0" prefWidth="231.0" />
-            <Spinner fx:id="kSpinner" layoutX="110.0" layoutY="142.0" prefHeight="25.0" prefWidth="95.0" />
+            <Spinner fx:id="kSpin" layoutX="110.0" layoutY="142.0" prefHeight="25.0" prefWidth="95.0" />
             <Label layoutX="15.0" layoutY="146.0" text="Korongok száma:" />
             <Button layoutX="93.0" layoutY="245.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="215.0" style="-fx-background-color: lightblue;" text="Játék indítása">
                <font>
