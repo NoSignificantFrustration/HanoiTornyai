@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="Hanoi.FoablakController">
+<BorderPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Hanoi.FoablakController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -41,7 +40,7 @@
             <TextField fx:id="nevMezo" layoutX="110.0" layoutY="60.0" prefHeight="25.0" prefWidth="231.0" />
             <Spinner fx:id="kSpin" layoutX="110.0" layoutY="142.0" prefHeight="25.0" prefWidth="95.0" />
             <Label layoutX="15.0" layoutY="146.0" text="Korongok száma:" />
-            <Button layoutX="93.0" layoutY="245.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="215.0" style="-fx-background-color: lightblue;" text="Játék indítása">
+            <Button layoutX="93.0" layoutY="245.0" mnemonicParsing="false" onAction="#PlayGombAction" prefHeight="48.0" prefWidth="215.0" style="-fx-background-color: lightblue;" text="Játék indítása">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
