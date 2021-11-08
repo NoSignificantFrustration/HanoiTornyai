@@ -43,9 +43,6 @@ public class FoablakController {
     	VBox root = (VBox)fl.load();
     	// A felhasználó átadása a hanoi ablaknak
     	hanoiFormController hfc = fl.getController();
-    	hfc.setFh(felhasznalo);
-    	// A korongok számának a hanoi ablaknak
-    	hfc.setKorongokSzama(kSpin.getValue());
     	
     	Scene sc = new Scene(root);
     	Node n = (Node)event.getSource();
@@ -53,7 +50,10 @@ public class FoablakController {
     	st.setScene(sc);
     	st.show();
     	
-    	
+
+    	hfc.setFh(felhasznalo);
+    	// A korongok számának a hanoi ablaknak
+    	hfc.setKorongokSzama(kSpin.getValue());
     	
     }
 

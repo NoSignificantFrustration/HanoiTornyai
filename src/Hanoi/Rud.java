@@ -29,6 +29,17 @@ public class Rud {
 		this.szin = (Color)tlap.getFill();
 		this.szelesseg = tlap.getWidth();
 		this.magassag = tlap.getHeight();
+		korongok = new ArrayList<Korong>();
+	}
+	
+	public void  addKorong(Korong k) {
+		//TODO: Ellenõrizni hony ne legyen nagyobb a korong a legfelsõnél
+		korongok.add(k);
+	}
+	
+
+	public ArrayList<Korong> getKorongok() {
+		return korongok;
 	}
 
 
@@ -61,8 +72,18 @@ public class Rud {
 		this.magassag = magassag;
 	}
 	
+	public boolean isEmpty() {
+		return korongok.isEmpty();
+	}
 	
-	
+	public Korong elveszKorong() {
+		if (!korongok.isEmpty()) {
+			Korong legfelso = korongok.remove(korongok.size() - 1);
+			return legfelso;
+		}
+		return null;
+		
+	}
 	
 	
 }
