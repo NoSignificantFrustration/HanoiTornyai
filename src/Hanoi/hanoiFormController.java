@@ -143,15 +143,12 @@ public class hanoiFormController {
 		masodikRudRect.setHeight(rh);
 		harmadikRudRect.setHeight(rh);
 		
-		for (int kix = 0; kix < r1.getKorongok().size(); kix++) {
-			Korong k = r1.getKorongok().get(kix);
-			double kx = rx1 - (k.getSzelesseg() / 2 - w / 2);
-			double ky = (y - 15) - ((kix + 1)*k.getMagassag());
-			Rectangle tlap = k.getTlap();
-			tlap.setLayoutX(kx);
-			tlap.setLayoutY(ky);
-			jatekTerület.getChildren().add(tlap);
-		}
+		
+		egyRudRajzolas(r1);
+		egyRudRajzolas(r2);
+		egyRudRajzolas(r3);
+		
+		
 		
 	}
 	
@@ -166,7 +163,34 @@ public class hanoiFormController {
 				
 			}
 			
+		} else {
+			if (r.addKorong(kezbeKorong)) {
+				kezbeKorong = null;
+				egyRudRajzolas(r);
+			}
 		}
+	}
+
+
+	private void egyRudRajzolas(Rud r) {
+		
+		double y = jatekTerület.getHeight();
+		double rx1 = r.getTlap().getLayoutX();
+		double w = r.getSzelesseg();
+		
+		for (int kix = 0; kix < r.getKorongok().size(); kix++) {
+			Korong k = r.getKorongok().get(kix);
+			double kx = rx1 - (k.getSzelesseg() / 2 - w / 2);
+			double ky = (y - 15) - ((kix + 1) * k.getMagassag());
+			Rectangle tlap = k.getTlap();
+			tlap.setLayoutX(kx);
+			tlap.setLayoutY(ky);
+			if (!jatekTerület.getChildren().contains(tlap)) {
+				jatekTerület.getChildren().add(tlap);
+			}
+			
+		}
+		
 	}
 
 }

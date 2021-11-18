@@ -32,11 +32,21 @@ public class Rud {
 		korongok = new ArrayList<Korong>();
 	}
 	
-	public void  addKorong(Korong k) {
+	public boolean  addKorong(Korong k) {
 		//TODO: Ellenõrizni hony ne legyen nagyobb a korong a legfelsõnél
-		korongok.add(k);
+		if (korongok.isEmpty() || k.getSzelesseg() < korongok.get(korongok.size() - 1).getSzelesseg()) {
+			korongok.add(k);
+			return true;
+		}
+		return false;
+		
 	}
 	
+
+	public Rectangle getTlap() {
+		return tlap;
+	}
+
 
 	public ArrayList<Korong> getKorongok() {
 		return korongok;
