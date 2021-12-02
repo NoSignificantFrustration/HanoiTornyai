@@ -41,6 +41,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Hanoi.hanoiFormController">
   <children>
@@ -48,23 +49,15 @@
       <menus>
         <Menu mnemonicParsing="false" text="Fájl">
           <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
+            <MenuItem fx:id="ujItem" mnemonicParsing="false" onAction="#ujKattintas" text="Új játék" />
+                  <MenuItem fx:id="beallItem" mnemonicParsing="false" onAction="#beallKattintas" text="Beállítások" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
+            <MenuItem fx:id="kilepItem" mnemonicParsing="false" onAction="#kilepKattintas" text="Kilépés" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Súgó">
           <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+            <MenuItem fx:id="helpItem" mnemonicParsing="false" onAction="#helpKattintas" text="Segítség" />
           </items>
         </Menu>
       </menus>
@@ -75,9 +68,14 @@
             <Rectangle fx:id="masodikRudRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="303.0" layoutX="310.0" layoutY="81.0" onMouseClicked="#masodikRudClick" stroke="BLACK" strokeType="INSIDE" width="8.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="15.0" layoutY="384.0" stroke="BLACK" strokeType="INSIDE" width="640.0" />
             <Rectangle fx:id="harmadikRudRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="303.0" layoutX="480.0" layoutY="81.0" onMouseClicked="#harmadikRudClick" stroke="BLACK" strokeType="INSIDE" width="8.0" />
-            <Pane fx:id="felvettPane" layoutX="133.0" layoutY="4.0" prefHeight="30.0" prefWidth="335.0">
+            <Pane fx:id="felvettPane" layoutX="133.0" layoutY="4.0" prefHeight="30.0" prefWidth="478.0">
                <children>
-                  <Label layoutX="13.0" layoutY="5.0" prefHeight="17.0" prefWidth="155.0" text="A felemelt korong:" />
+                  <Label layoutX="13.0" layoutY="5.0" prefHeight="17.0" prefWidth="101.0" text="A felemelt korong:" />
+                  <Label fx:id="lepesCimke" layoutX="356.0" layoutY="7.0" text="Lépések száma: 0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>

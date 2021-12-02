@@ -50,8 +50,9 @@ public class FoablakController {
     	st.setScene(sc);
     	st.show();
     	
-
+    	hfc.setFoablak(n.getScene());
     	hfc.setFh(felhasznalo);
+    	System.out.println(felhasznalo.getNev());
     	// A korongok számának a hanoi ablaknak
     	hfc.setKorongokSzama(kSpin.getValue());
     	

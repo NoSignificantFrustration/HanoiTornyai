@@ -1,16 +1,43 @@
 package Hanoi;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
+
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
 public class hanoiFormController {
 
+	@FXML
+    private MenuItem ujItem;
+
+    @FXML
+    private MenuItem beallItem;
+
+    @FXML
+    private MenuItem kilepItem;
+
+    @FXML
+    private MenuItem helpItem;
+	
+    @FXML
+    private Label lepesCimke;
+	
     @FXML
     private AnchorPane jatekTerület;
     
@@ -52,6 +79,43 @@ public class hanoiFormController {
     	System.out.println("Harmadik rúd click");
     	korongMozgatas(r3);
     }
+    
+    @FXML
+    void helpKattintas(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void kilepKattintas(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setTitle("Kilépés megerõsítése");
+    	alert.setHeaderText("Ön a kilépés menüpontra kattintott");
+    	alert.setContentText("Valóban ki akar lépni a programból?");
+
+    	Optional<ButtonType> result = alert.showAndWait();
+    	if (result.get() == ButtonType.OK){
+    			Stage st = (Stage)jatekTerület.getScene().getWindow();
+    			st.close();
+    			//Platform.exit();
+    			//System.exit(0);
+    	} 
+
+    }
+    
+
+    @FXML
+    void ujKattintas(ActionEvent event) {
+    	Stage st = (Stage) jatekTerület.getScene().getWindow();
+    	if (foablak != null) {
+    		st.setScene(foablak);
+    		st.show();
+		}
+    }
+    
+    @FXML
+    void beallKattintas(ActionEvent event) {
+
+    }
 
     @FXML
     void initialize() {
@@ -90,7 +154,13 @@ public class hanoiFormController {
     		Color.WHITE
     };
     private Korong kezbeKorong;
+    private Scene foablak;
 
+
+
+	public void setFoablak(Scene foablak) {
+		this.foablak = foablak;
+	}
 
 
 	public void setKorongokSzama(int korongokSzama) {
@@ -167,6 +237,9 @@ public class hanoiFormController {
 			if (r.addKorong(kezbeKorong)) {
 				kezbeKorong = null;
 				egyRudRajzolas(r);
+				
+				fh.lepesNoveles();
+				lepesCimke.setText("Lépések száma: " + fh.getLepesSzam());
 			}
 		}
 	}
@@ -190,6 +263,7 @@ public class hanoiFormController {
 			}
 			
 		}
+		
 		
 	}
 
