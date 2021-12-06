@@ -1,5 +1,6 @@
 package Hanoi;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -8,6 +9,8 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -113,8 +116,17 @@ public class hanoiFormController {
     }
     
     @FXML
-    void beallKattintas(ActionEvent event) {
-
+    void beallKattintas(ActionEvent event) throws IOException {
+    	FXMLLoader fl = new FXMLLoader(getClass().getResource("Beallitas.fxml"));
+    	AnchorPane root = (AnchorPane)fl.load();
+    	// A felhasználó átadása a hanoi ablaknak
+    	hanoiFormController hfc = fl.getController();
+    	
+    	Scene sc = new Scene(root);
+    	Node n = (Node)event.getSource();
+    	Stage st = (Stage)jatekTerület.getScene().getWindow();
+    	st.setScene(sc);
+    	st.show();
     }
 
     @FXML
